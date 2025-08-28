@@ -27,3 +27,23 @@ def main():
 if __name__ == "__main__":
     main()
 print("ooooohraaaaay!!!!  input.txt created, processed, and output.txt generated successfully!")
+
+
+# Error Handling Lab
+
+try:
+    # Ask user for a filename
+    filename = input("Enter the filename to read: ")
+
+    # Try opening the file
+    with open(filename, "r") as file:
+        contents = file.read()
+        print("\n File content successfully read:\n")
+        print(contents)
+
+except FileNotFoundError:
+    print("Error: The file does not exist. Please check the name and try again.")
+except PermissionError:
+    print(" Error: You don't have permission to read this file.")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
